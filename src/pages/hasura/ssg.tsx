@@ -4,6 +4,7 @@ import { initializeApollo } from "src/lib/apolloClient";
 import { GET_USERS } from "src/queries/queries";
 import type { GetUsersQuery, Users } from "src/types/generated/graphql";
 import { Layout } from "src/components/layout/Layout";
+import { Route } from "src/route/route";
 
 type Props = {
 	users: ({
@@ -15,7 +16,7 @@ const HasuraSSG: NextPage<Props> = ({ users }) => {
 		<Layout title="Hasura SSG">
 			<p className="mb-3 font-bold">SSG+ISR</p>
 			{users?.map((user) => (
-				<Link key={user.id} href={`/users/${user.id}`}>
+				<Link key={user.id} href={Route.users.id(user.id)}>
 					<a className="my-1 cursor-pointer" data-testid={`link-${user.id}`}>
 						{user.name}
 					</a>

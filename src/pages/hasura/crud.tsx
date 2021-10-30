@@ -34,7 +34,6 @@ const HasuraCRUD: NextPage = () => {
 				<button
 					disabled={!editedUser.name}
 					className="py-1 px-3 my-3 text-white bg-indigo-600 hover:bg-indigo-700 rounded-2xl disabled:opacity-40 focus:outline-none"
-					data-testid="new"
 					type="submit"
 				>
 					{editedUser.id ? "Update" : "Create"}

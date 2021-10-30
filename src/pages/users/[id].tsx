@@ -9,6 +9,7 @@ import {
 	Users,
 } from "src/types/generated/graphql";
 import { Layout } from "src/components/layout/Layout";
+import { Route } from "src/route/route";
 
 type Props = {
 	user: {
@@ -17,23 +18,18 @@ type Props = {
 };
 
 const UserDetail: NextPage<Props> = ({ user }) => {
-	if (!user) return <Layout title="loading">Loading...</Layout>
+	if (!user) return <Layout title="loading">Loading...</Layout>;
 	return (
 		<Layout title={user.name}>
 			<p className="text-xl font-bold">User detail</p>
-			<p className="m-4">
-				ID : {user.id}
-			</p>
+			<p className="m-4">ID : {user.id}</p>
 			<p className="mb-4 text-xl font-bold">{user.name}</p>
 			<p className="mb-12">{user.created_at}</p>
 			<div>
-				<Link href="/hasura/ssg">
+				<Link href={Route.hasura.ssg}>
 					<a className="flex mt-12 cursor-pointer">
-						<ChevronDoubleLeftIcon
-							data-testid="auth-to-main"
-							className="mr-3 w-5 h-5 text-blue-500"
-						/>
-						<span data-testid="back-to-main">Back to main-ssg-page</span>
+						<ChevronDoubleLeftIcon className="mr-3 w-5 h-5 text-blue-500" />
+						<span>Back to main-ssg-page</span>
 					</a>
 				</Link>
 			</div>

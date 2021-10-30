@@ -1,40 +1,39 @@
 import { VFC } from "react";
-// import { useCreateForm } from "src/hooks/useCreateForm";
-// import { Child } from "./Child";
+import { useCreateForm } from "src/hooks/useCreateForm";
+import { Child } from "./Child";
 
 export const CreateUser: VFC = () => {
-	// const {
-	// 	handleSubmit,
-	// 	username,
-	// 	usernameChange,
-	// 	printMsg,
-	// 	text,
-	// 	handleTextChange,
-	// } = useCreateForm();
+	const {
+		handleSubmit,
+		username,
+		handleUsernameChange,
+		printMsg,
+		text,
+		handleTextChange,
+	} = useCreateForm();
 	return (
 		<>
-			{/* {('CreateUser rendered')} */}
 			<p className="mb-3 font-bold">Custom Hook + useCallback + memo</p>
 			<div className="flex flex-col justify-center items-center mb-3">
 				<label>Text</label>
 				<input
 					className="py-2 px-3 border border-gray-300"
 					type="text"
-					// value={text}
-					// onChange={handleTextChange}
+					value={text}
+					onChange={handleTextChange}
 				/>
 			</div>
 			<form
 				className="flex flex-col justify-center items-center "
-				// onSubmit={handleSubmit}
+				onSubmit={handleSubmit}
 			>
 				<label>Username</label>
 				<input
 					className="py-2 px-3 mb-3 border border-gray-300"
 					placeholder="New user ?"
 					type="text"
-					// value={username}
-					// onChange={usernameChange}
+					value={username}
+					onChange={handleUsernameChange}
 				/>
 				<button
 					className="py-1 px-3 my-3 text-white bg-indigo-600 hover:bg-indigo-700 rounded-2xl focus:outline-none"
@@ -43,7 +42,7 @@ export const CreateUser: VFC = () => {
 					Submit
 				</button>
 			</form>
-			{/* <Child printMsg={printMsg} handleSubmit={handleSubmit} /> */}
+			<Child printMsg={printMsg} onSubmit={handleSubmit} />
 		</>
 	);
 };

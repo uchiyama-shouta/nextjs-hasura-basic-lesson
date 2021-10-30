@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { VFC } from "react";
 import { useLocalTodos } from "src/hooks/useLocalTodos";
+import { Route } from "src/route/route";
 
 export const LocalStateA: VFC = () => {
 	const { todos, input, handleDelete, handleChange, handleSubmit } =
@@ -39,7 +40,7 @@ export const LocalStateA: VFC = () => {
 					Add new state
 				</button>
 			</form>
-			<Link href="/local-state/b">
+			<Link href={Route.localState.b}>
 				<a className="mt-2 text-blue-500 hover:border-b-2 border-blue-500">
 					Next
 				</a>
