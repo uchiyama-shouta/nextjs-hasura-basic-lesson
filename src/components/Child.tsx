@@ -1,4 +1,5 @@
 import { FormEvent, memo, VFC } from "react";
+import { Button } from "src/components/UI/Button";
 
 type Props = {
 	printMsg: () => void;
@@ -9,12 +10,9 @@ export const Child: VFC<Props> = memo(({ printMsg: handlePrint }) => {
 	return (
 		<>
 			<p>Child Component</p>
-			<button
-				className="py-1 px-3 my-3 text-white bg-indigo-600 hover:bg-indigo-700 rounded-2xl focus:outline-none"
-				onClick={handlePrint}
-			>
+			<Button bg="indigo" onClick={handlePrint}>
 				click
-			</button>
+			</Button>
 		</>
 	);
 });

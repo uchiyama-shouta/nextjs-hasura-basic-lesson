@@ -1,4 +1,5 @@
 import { VFC, memo, Dispatch, SetStateAction } from "react";
+import { Button } from "src/components/UI/Button";
 import { Users, DeleteUserMutationFn } from "../types/generated/graphql";
 
 type Props = {
@@ -31,18 +32,12 @@ export const UserItem: VFC<Props> = memo(
 			<div className="my-1">
 				<span className="mr-3">{user.name}</span>
 				<span className="mr-2">{user.created_at}</span>
-				<button
-					className="py-1 px-3 mr-1 text-white bg-green-600 hover:bg-green-700 rounded-2xl focus:outline-none"
-					onClick={handleSetEditUser}
-				>
+				<Button bg="green" onClick={handleSetEditUser} mr={1}>
 					Edit
-				</button>
-				<button
-					className="py-1 px-3 text-white bg-pink-600 hover:bg-pink-700 rounded-2xl focus:outline-none"
-					onClick={handleDeleteUsers}
-				>
+				</Button>
+				<Button bg="pink" onClick={handleDeleteUsers}>
 					Delete
-				</button>
+				</Button>
 			</div>
 		);
 	},

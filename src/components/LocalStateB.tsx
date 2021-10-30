@@ -16,9 +16,7 @@ export const LocalStateB: VFC = () => {
 				))}
 			</ul>
 			<Link href={Route.localState.a}>
-				<a className="mt-2 text-blue-500 hover:border-b-2 border-blue-500">
-					Back
-				</a>
+				<a className="mt-2 text-blue-500">Back</a>
 			</Link>
 		</>
 	);

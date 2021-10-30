@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import { useRecoilState } from "recoil";
 import { tasksState } from "src/lib/atoms/tasksAtom";
 
@@ -16,17 +16,20 @@ export const useLocalTodos = () => {
 		setInput(e.target.value);
 	};
 
-	const handleDelete = (i: number) => {
-		const newTodos = [...todos];
-		newTodos.splice(i, 1);
-		setTodos(newTodos);
-	};
-   
+	const handleDelete = useCallback(
+		(i: number) => {
+			const newTodos = [...todos];
+			newTodos.splice(i, 1);
+			setTodos(newTodos);
+		},
+		[todos, setTodos],
+	);
+
 	return {
 		todos,
-      input,
-      handleChange,
-      handleSubmit,
+		input,
+		handleChange,
+		handleSubmit,
 		handleDelete,
 	};
 };

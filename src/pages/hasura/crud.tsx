@@ -3,6 +3,8 @@ import { DeleteUserMutationFn } from "src/types/generated/graphql";
 import { Layout } from "src/components/layout/Layout";
 import { useCrudUser } from "src/hooks/useCrudUser";
 import { UserList } from "src/components/UserList";
+import { Button } from "src/components/UI/Button";
+import { Input } from "src/components/UI/Input";
 
 const HasuraCRUD: NextPage = () => {
 	const {
@@ -24,20 +26,14 @@ const HasuraCRUD: NextPage = () => {
 				className="flex flex-col justify-center items-center"
 				onSubmit={handleSubmit}
 			>
-				<input
-					className="py-2 px-3 border border-gray-300"
+				<Input
 					placeholder="New user ?"
-					type="text"
 					value={editedUser.name}
 					onChange={handleSetEditUser}
 				/>
-				<button
-					disabled={!editedUser.name}
-					className="py-1 px-3 my-3 text-white bg-indigo-600 hover:bg-indigo-700 rounded-2xl disabled:opacity-40 focus:outline-none"
-					type="submit"
-				>
+				<Button disabled={!editedUser.name} bg="indigo" type="submit" my={3}>
 					{editedUser.id ? "Update" : "Create"}
-				</button>
+				</Button>
 			</form>
 
 			<UserList
