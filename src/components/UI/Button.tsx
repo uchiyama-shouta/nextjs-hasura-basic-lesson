@@ -21,7 +21,6 @@ export const Button: VFC<Props> = memo(
 		my,
 		mr,
 	}) => {
-		console.log("render!");
 		return (
 			<button
 				className={cc([
